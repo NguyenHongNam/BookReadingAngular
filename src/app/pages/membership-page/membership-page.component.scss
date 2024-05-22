@@ -1,0 +1,54 @@
+.banner{
+    background-image: url('/assets/img/CalendarBanner.jpg');
+    min-height: 150px;
+    position: relative;
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 550px;
+}
+
+
+.banner {
+    margin-bottom: 20px; /* Tạo khoảng cách giữa banner và các card */
+}
+
+.card{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Căn giữa các phần tử bên trong card theo chiều dọc */
+    align-items: center; /* Căn giữa các phần tử bên trong card theo chiều ngang */
+    margin-right: 50px;
+    min-height: 250px;
+    min-width: 200px;
+    background-color: #FFFFFF1A;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+[nzTitle]{
+    color: white;
+    font-weight: bold;
+}
+.btn-buy{
+    background-color: #FFFFFF1A;
+    border: none;
+}
+.btn-buy:hover {
+    background-color: #3AB795; /* Chuyển màu nền sang màu xanh khi hover */
+}
+
+h1{
+    font-weight: bold;
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+h3{
+    margin-top: 0;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}

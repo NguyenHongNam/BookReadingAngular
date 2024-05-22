@@ -1,0 +1,85 @@
+<div class="function-bar">
+    <button nz-button nzType="primary" (click)="showAddModal()">Thêm tài khoản mục mới</button>
+    <div class="search-box">
+      <input type="text" placeholder="Tìm kiếm" [(ngModel)]="searchTitle" (keyup)="onsearchTermChange()"/>
+  </div>
+  </div>
+  <nz-table #headerTable [nzScroll]="{ y: '300px' }"
+        [nzData]="accounts" [nzFrontPagination]="false">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Họ tên</th>
+          <th>Tên tài khoản</th>
+          <th>Email</th>
+          <th>Tình trạng hội viên</th>
+          <th>Giới tính</th>
+          <th>Số dư</th>
+          <th>Ngày tạo</th>
+          <th>Chức năng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let account of accounts">
+          <td>{{ account.accountId}}</td>
+          <td>{{ account.fullname }}</td>
+          <td>{{ account.username }}</td>
+          <td>{{ account.email }}</td>
+          <td>{{ account.membership ? 'Có' : 'Không' }}</td>
+          <td>{{ account.gender ? 'Có' : 'Không' }}</td>
+          <td>{{ account.balance }}</td>
+          <td>{{ account.createdDate }}</td>
+          <td>
+            <a (click)="showEditModal(account)">Sửa</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a (click)="confirmDelete(account)">Xoá</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+
+    <nz-modal [(nzVisible)]="isVisible" nzTitle="Chỉnh sửa sách" (nzOnCancel)="handleCancel()" (nzOnOk)="editAccount()" [nzWidth]="800">
+      <ng-container *nzModalContent>
+        <form id="editBookForm">
+          <div class="form-group">
+              <nz-form-label>Họ tên</nz-form-label>
+            <input nz-input type="text" class="form-control" name="addBookTitle" [(ngModel)]="editedAccount.fullname">
+          </div>
+          <div class="form-group">
+            <nz-form-label>Email</nz-form-label>
+          <input nz-input type="text" class="form-control" name="editAccountEmail" [(ngModel)]="editedAccount.email">
+        </div>
+          <div class="form-group">
+              <nz-form-label>Số dư</nz-form-label>
+            <input nz-input type="text" class="form-control" name="editAccountBalance" [(ngModel)]="editedAccount.balance">
+          </div>
+          <div class="form-group">
+            <nz-form-label>Tên đăng nhập</nz-form-label>
+          <input nz-input type="text" class="form-control" name="editAccountUsername" [(ngModel)]="editedAccount.username">
+        </div>
+        <div class="form-group">
+          <nz-form-label>Mật khẩu</nz-form-label>
+        <input nz-input type="password" class="form-control" name="editAccountPassword" [(ngModel)]="editedAccount.password">
+      </div>
+          <div class="form-group">
+              <nz-form-label>Ảnh đại diện</nz-form-label>
+              <input type="file" class="form-control" name="addBookImgsrc" (change)="onImageEdit($event)">
+            </div>
+            <div class="preview-image" *ngIf="currentImageUrl">
+              <img [src]="currentImageUrl" alt="Ảnh đại diện" class="img-thumbnail">
+            </div>
+          <div class="form-group">
+              <nz-form-label>Giới tính</nz-form-label>
+            <input type="checkbox" class="form-control" name="editAccountGender" [(ngModel)]="editedAccount.gender">
+          </div>
+          <div class="form-group">
+            <nz-form-label>Hội viên</nz-form-label>
+          <input type="checkbox" class="form-control" name="addBookForMembership" [(ngModel)]="editedAccount.membership">
+        </div>
+        <div class="form-group">
+          <nz-form-label>Vai trò</nz-form-label>
+        <input nz-input type="text" class="form-control" name="addBookPublisher" [(ngModel)]="editedAccount.role">
+      </div>
+        </form>
+      </ng-container>
+    </nz-modal>

@@ -1,0 +1,160 @@
+#main_wrapper{
+    color: white;
+}
+.user-profile{
+    color: white;
+}
+
+#menu{
+
+    height: 30px;
+}
+#left_sidebar{
+    float:left;
+    width: 250px;
+    min-height: 600px;
+    margin-left: 100px;
+    flex: 1;
+    padding-right: 10px; /* Thêm một khoảng trống bên phải để tạo đường kẻ */
+    border-right: 1px solid grey
+}
+#right_sidebar{
+    float:right;
+    width: 350px;
+    height: auto;
+}
+ 
+#content{
+    margin-left: 350px;
+    margin-right: 380px;
+    height: auto;
+    flex: 1;
+    padding-left: 10px; /* Thêm một khoảng trống bên trái để tạo đối động */
+}
+#main_content{
+    min-height: 600px;
+}
+img{
+    width: 300px;
+    height: 400px;
+}
+h1,h2,h3{
+    color: white;
+}
+
+.comment-section{
+    min-height: 500px;
+}
+.book-info ul li {
+    margin-right: 15px;
+  }
+ul {
+    list-style-type: none;
+}
+.btn-read{
+    background: #15B088;
+    border: none;
+}
+textarea{
+    width: 80%;
+    max-height: 150px;
+    min-height: 50px;
+    background: #272727;
+}
+.btn-comment{
+    width: 100px;
+    height: 50px;
+    margin-left: 15px;
+}
+.comment {
+    display: flex;
+    align-items: flex-start; /* Align items at the start */
+}
+.comment-card{
+    border-radius: 10px;
+    background: #1C1C1E;
+}
+.card-header {
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+    width: 100%; /* Ensure the header spans the full width */
+}
+.avata-name {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    padding: 5px;
+
+}
+.time {
+    margin-left: auto; /* Push the time to the right */
+    margin-right: 5px;
+}
+
+nz-avatar {
+    margin-right: 10px;
+}
+.content{
+    margin-left: 55px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.title{
+    color: gray;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.user_name{
+    margin-bottom: 15px;
+}
+.balance{
+    margin-bottom: 15px;
+}
+.add-balance{
+    margin-top: 15px;
+}
+.btn-read{
+    margin-right: 5px;
+    color: white;
+}
+nz-form-label {
+    color: white;
+}
+
+/* Tạo đường viền cho input */
+.input-group input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Thêm kiểu chú thích cho input khi được focus */
+.input-group input:focus {
+    border-color: dodgerblue;
+    outline: none;
+}
+
+#user-info .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#user-info nz-form-label {
+    color: white !important;
+    flex: 0 0 auto; /* Đặt chiều rộng của nhãn là auto để nó chỉ chiếm không gian cần thiết */
+    margin-right: 10px; /* Tạo khoảng cách giữa nhãn và input */
+}
+
+#user-info input {
+    flex: 1; /* Đặt chiều rộng của input để nó sử dụng phần còn lại của không gian */
+    max-width: 300px; /* Điều chỉnh chiều rộng tối đa của input nếu bạn muốn */
+    background-color: #FFFFFF1A; /* Đặt màu nền của input thành màu xám */
+    border: none; /* Xóa viền của input */
+    padding: 8px;
+    margin-left: 5px;
+}
+

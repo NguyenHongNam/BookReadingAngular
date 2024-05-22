@@ -1,0 +1,78 @@
+.container {
+    display: flex; /* Kích hoạt flexbox cho bố cục */
+    justify-content: center; /* Canh giữa theo chiều ngang */
+    align-items: center; /* Canh giữa theo chiều dọc */
+    min-height: 100vh; /* Chiều cao tối thiểu bằng 100% chiều cao màn hình */
+  }
+  
+  .card {
+    width: 350px; /* Chiều rộng form */
+    margin-top: 50px; /* Khoảng cách từ trên xuống */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+  }
+  
+  .card-header {
+    background-color: #15B088; /* Màu nền tiêu đề card */
+    text-align: center; /* Căn giữa nội dung tiêu đề */
+  }
+  
+  .card-body {
+    padding: 20px; /* Khoảng trống bên trong card */
+  }
+  
+  /* Tạo kiểu cho input và label */
+  .form-group {
+    margin-bottom: 15px; /* Khoảng cách giữa các nhóm form */
+  }
+  
+  label {
+    display: block; /* Hiển thị label trên một dòng riêng */
+    margin-bottom: 5px; /* Khoảng cách giữa label và input */
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="fullname"] {
+    width: 100%; /* Chiều rộng input 100% */
+    padding: 8px; /* Khoảng trống bên trong input */
+    border: 1px solid #ccc; /* Đường viền input */
+    border-radius: 4px; /* Bán kính bo tròn cho góc input */
+    color: black;
+  }
+  
+  /* Tạo kiểu cho nút đăng nhập */
+  .btn {
+    display: block; /* Hiển thị nút trên một dòng riêng */
+    width: 100%; /* Chiều rộng nút 100% */
+    padding: 10px 15px; /* Khoảng trống bên trong nút */
+    background-color: #15B088; /* Màu nền nút */
+    color: #fff; /* Màu chữ nút */
+    border: none; /* Bỏ đường viền nút */
+    border-radius: 5px; /* Bán kính bo tròn cho góc nút */
+    cursor: pointer; /* Con trỏ chuột thành dạng con trỏ khi di chuột qua nút */
+    margin-top: 20px;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3; /* Màu nền khi di chuột qua nút */
+  }
+.form-check-inline .form-check-input {
+    margin-top: 0;
+}
+
+/* Đảm bảo rằng các radio button và label được căn giữa theo trục Y */
+.form-check-inline .form-check-input,
+.form-check-inline .form-check-label {
+    vertical-align: middle;
+}
+
+/* Tăng khoảng cách giữa các radio button và label */
+.form-check-inline .form-check-input,
+.form-check-inline .form-check-label {
+    margin-right: 10px;
+}
+.formcheck{
+display: flex;
+}

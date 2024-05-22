@@ -1,0 +1,102 @@
+
+#menu{
+
+    height: 30px;
+}
+#left_sidebar{
+    float:left;
+    width: 350px;
+    height: auto;
+    margin-left: 100px;
+
+}
+#right_sidebar{
+    margin-top: 20px;
+    float:right;
+    width: 350px;
+    height: auto;
+}
+ 
+#content{
+    margin-left: 450px;
+    margin-right: 380px;
+    height: auto;
+}
+img{
+    width: 300px;
+    height: 400px;
+}
+[nz-button] {
+    margin-right: 8px;
+    margin-bottom: 12px;
+    background-color: transparent;
+    border-color: gainsboro;
+}
+h1,h2{
+    color: white;
+}
+
+.comment-section{
+    min-height: 500px;
+}
+.book-info ul li {
+    margin-right: 15px;
+  }
+.book-info{
+    display: flex;
+}
+ul {
+    list-style-type: none;
+}
+.btn-read{
+    background: #15B088;
+    border: none;
+}
+textarea{
+    width: 80%;
+    max-height: 150px;
+    min-height: 50px;
+    background: #272727;
+}
+.btn-comment{
+    width: 100px;
+    height: 50px;
+    margin-left: 15px;
+}
+.comment {
+    display: flex;
+    align-items: flex-start; /* Align items at the start */
+}
+.comment-card{
+    border-radius: 10px;
+    background: #1C1C1E;
+}
+.card-header {
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+    width: 100%; /* Ensure the header spans the full width */
+}
+.avata-name {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    padding: 5px;
+
+}
+.time {
+    margin-left: auto; /* Push the time to the right */
+    margin-right: 5px;
+}
+
+nz-avatar {
+    margin-right: 10px;
+}
+.content{
+    margin-left: 55px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.title{
+    color: gray;
+    font-size: 13px;
+    margin-bottom: 5px;
+}

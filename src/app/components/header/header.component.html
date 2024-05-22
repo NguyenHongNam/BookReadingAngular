@@ -1,0 +1,48 @@
+<div class="header sticky">
+  <ul class="nav">
+    <div class="left-nav">
+      <li>
+        <a href="/home-page">
+          <img src="/assets/img/Logo-iBook-removebg-preview.png" alt="Logo" class="logo">
+      </a>
+    </li>
+      <li><a href="/book-list">Sách miễn phí</a></li>
+      <li><a (click)="navigateToMembershipPage()">Dành cho hội viên</a></li>
+    </div>
+    <div class="right-nav">
+      <li>
+        <a>
+          <span nz-icon nzType="search" nzTheme="outline"></span>
+        </a>
+      </li>
+      <li>
+        <button class="membership" nz-button nzType="primary" [nzSize]="size" nzShape="round" routerLink="/membership-page">
+          <span nz-icon nzType="crown" nzTheme="outline"></span>
+          Gói cước
+        </button>
+      </li>
+      <li>
+        <nz-button-group>
+          <button nz-button (click)="gotoUserInfo(this.currentUser!.accountId)" >{{currentUser?.username}}</button>
+          <button nz-button nz-dropdown [nzDropdownMenu]="menu2" nzPlacement="bottomRight">
+            <span nz-icon nzType="user"></span>
+            <nz-dropdown-menu #menu2="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item>Số dư: {{currentUser?.balance}}</li>
+                <li nz-menu-item>Trạng thái hội viên: {{currentUser?.membership ? 'Có' : 'Không'}}</li>
+                <li nz-menu-item (click)="logout()">Đăng xuất</li>
+              </ul>
+            </nz-dropdown-menu>
+          </button>
+        </nz-button-group>
+            <nz-dropdown-menu #menu2="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item>menu2 1st menu item</li>
+        <li nz-menu-item>menu2 2nd menu item</li>
+        <li nz-menu-item>menu2 3rd menu item</li>
+      </ul>
+    </nz-dropdown-menu>
+      </li>
+    </div>
+  </ul>
+</div>

@@ -1,0 +1,56 @@
+<div class="container">
+    <nz-layout>
+        <nz-sider nzCollapsible nzWidth="200px">
+          <div class="logo">
+            <img src="/assets/img/Logo-iBook-removebg-preview.png" alt="">
+          </div>
+          <ul nz-menu nzTheme="dark" nzMode="inline">
+            <li nz-menu-item>
+              <span nz-icon nzType="pie-chart"></span>
+              <span routerLink="/admin/manage-statistics">Thống kê</span>
+            </li>
+            <li nz-menu-item>
+              <span nz-icon nzType="read" nzTheme="outline"></span>
+              <span routerLink="/admin/manage-books">Quản lý sách</span>
+            </li>
+            <li nz-menu-item>
+              <span nz-icon nzType="usergroup-delete" nzTheme="outline"></span>
+              <span routerLink="/admin/manage-account">Quản lý tài khoản</span>
+            </li>
+            <li nz-menu-item>
+              <span nz-icon nzType="profile" nzTheme="outline"></span>
+              <span routerLink="/admin/manage-categories">Quản lý danh mục</span>
+            </li>
+            <li nz-menu-item>
+              <span nz-icon nzType="crown" nzTheme="outline"></span>
+              <span routerLink="/admin/manage-membership">Quản lý gói hội viên</span>
+            </li>
+            <li nz-menu-item>
+              <span nz-icon nzType="user" nzTheme="outline"></span>
+              <span routerLink="/admin/manage-authors">Quản lý tác giả</span>
+            </li>
+            <li nz-menu-item>
+              <span nz-icon nzType="comment" nzTheme="outline"></span>
+              <span>Quản lý bình luận</span>
+            </li>
+          </ul>
+        </nz-sider>
+        <nz-layout>
+          <nz-header>
+            <div class="header-content">
+              <div class="welcome-text">Xin chào Admin</div>
+              <div class="current-time">{{ currentTime | date: 'HH:mm:ss dd/MM/yyyy' }}</div>
+          </div>
+          </nz-header>
+          <nz-content>
+            <nz-breadcrumb>
+              <nz-breadcrumb-item>Quản lý</nz-breadcrumb-item>
+            </nz-breadcrumb>
+            <div class="inner-content">
+              <router-outlet></router-outlet>
+            </div>
+          </nz-content>
+          <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+        </nz-layout>
+      </nz-layout>
+</div>

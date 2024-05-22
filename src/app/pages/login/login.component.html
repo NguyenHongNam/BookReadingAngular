@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-md-6">
+          <div class="card mt-5">
+              <div class="card-header">
+                  <h2>Đăng nhập</h2>
+              </div>
+              <div class="card-body">
+                  <form onsubmit="event.preventDefault()" (submit)="login()">
+                      <div>
+                          <label for="username">Tài khoản:</label>
+                          <input class="form-control" type="text" name="username" [(ngModel)]="user.Username">
+                      </div>
+
+                      <div>
+                          <label for="password">Mật khẩu:</label>
+                          <input class="form-control" type="password" name="password" [(ngModel)]="user.Password">
+                      </div>
+
+                      <button type="submit" class="btn btn-primary mt-3" >Đăng nhập</button>
+                  </form>
+                  <div class="register">Chưa có tài khoản?<a routerLink="/register">Đăng ký</a></div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="function-bar">
+    <button nz-button nzType="primary" (click)="showAddModal()">Thêm danh mục mới</button>
+    <div class="search-box">
+      <input type="text" placeholder="Tìm kiếm" [(ngModel)]="searchTitle" (keyup)="onsearchTermChange()"/>
+  </div>
+  </div>
+  <nz-table #headerTable [nzScroll]="{ y: '300px' }"
+        [nzData]="categories" [nzFrontPagination]="false">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên danh mục</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <td>{{ category.categoryId }}</td>
+          <td>{{ category.categoryName }}</td>
+          <td>
+            <a (click)="showEditModal(category)">Sửa</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a (click)="confirmDelete(category)">Xoá</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  
+    <!-- modal chinh sua goi hoi vien -->
+  <nz-modal [(nzVisible)]="isVisible" nzTitle="Chỉng sửa danh mục" (nzOnCancel)="handleCancel()" (nzOnOk)="editCategory()">
+    <ng-container *nzModalContent>
+      <form id="editCategoryForm">
+        <div class="form-group">
+            <label for="editCategoryName">Tên danh mục</label>
+            <input type="text" class="form-control" name="categoryName" [(ngModel)]="editedCategory.categoryName">
+        </div>
+    </form>
+    </ng-container>
+  </nz-modal>
+  
+  
+  <!-- modal them goi hoi vien -->
+  <nz-modal [(nzVisible)]="isAddModelVisible" nzTitle="Thêm danh mục" (nzOnCancel)="handleAddModalCancel()" (nzOnOk)="addCategory()">
+    <ng-container *nzModalContent>
+      <form id="addCategoryForm">
+        <div class="form-group">
+            <label for="addCategoryName">Tên danh mục</label>
+            <input type="text" class="form-control" name="addcategoryName" [(ngModel)]="addedCategory.categoryName">
+        </div>
+    </form>
+    </ng-container>
+  </nz-modal>

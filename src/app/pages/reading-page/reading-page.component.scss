@@ -1,0 +1,18 @@
+.custom-header {
+    background-color: #29292B;  /* Set header background color to gray */
+    padding: 10px 15px;  /* Reduce padding for a narrower header */
+    border-radius: 4px;  /* Add slight rounded corners */
+    height: 50px;
+    color: white;
+  }
+  
+  .content {
+    width: 600px;  /* Set content width to 600px */
+    margin: 0 auto;  /* Center the content horizontally */
+    white-space: pre-line; /* Đảm bảo xuống dòng được giữ lại */
+  }
+
+  .custom-header nz-page-header-title {
+    text-align: center;
+    color: white;
+  }

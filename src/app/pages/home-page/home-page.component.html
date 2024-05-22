@@ -1,0 +1,46 @@
+<app-header></app-header>
+<main>
+  <div class="container">
+    <div class="banner">
+      <img src="\assets\img\banner.png" alt="Banner">
+    </div>
+    <div class="content">
+        <div class="box">
+          <h2>Sách miễn phí</h2>
+          <ul class="list-book">
+            <ng-container *ngFor="let book of freeBooks; let i = index">
+              <ng-container *ngIf="i < maxFreeBooksToShow">
+                <li>
+                  <a (click)="gotoBookDetail(book.bookId)">
+                    <div class="book-info">
+                      <img [src]="book.imgsrc" alt="Ảnh bìa">
+                      <p>{{ book.title }}</p> <!-- Thêm tên sách vào một thẻ p -->
+                    </div>
+                  </a>
+                </li>
+              </ng-container>
+            </ng-container>
+          </ul>
+        </div>
+        <div class="box">
+          <h2>Sách mới</h2>
+          <ul class="list-book">
+            <ng-container *ngFor="let book of newBooks; let i = index">
+              <!-- Chỉ hiển thị sách mới cho những người dùng có Membership là true -->
+              <ng-container *ngIf="!book.forMembership && i < maxBooksToShow">
+                <li>
+                  <a (click)="gotoBookDetail(book.bookId)">
+                    <div class="book-info">
+                      <img [src]="book.imgsrc" alt="Ảnh bìa" >
+                      <p>{{ book.title }}</p> <!-- Thêm tên sách vào một thẻ p -->
+                    </div>
+                  </a>
+                </li>
+              </ng-container>
+            </ng-container>
+          </ul>
+        </div>
+    </div>
+  </div>
+</main>
+<app-footer></app-footer>

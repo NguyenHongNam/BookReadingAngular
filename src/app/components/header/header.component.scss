@@ -1,0 +1,183 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header */
+  
+.header {
+  position: sticky;
+  top: 0;
+  background: transparent;
+  padding: 10px;
+  background-color: #FFFFFF1A;
+}
+  
+  .header h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+  }
+  
+  .header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+  }
+  
+  .header ul li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .header ul li a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  /* Content */
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .banner {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .banner img {
+    width: 100%;
+  }
+  
+  .banner .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+  }
+  
+  .banner .text h2 {
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .banner .text p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .banner .text a {
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  .main {
+    display: flex;
+  }
+  
+  .left {
+    width: 70%;
+  }
+  
+  .right {
+    width: 30%;
+  }
+  
+  .book {
+    margin-bottom: 20px;
+  }
+  
+  .book img {
+    width: 100%;
+  }
+  
+  .book h2 {
+    margin: 10px 0;
+    font-size: 24px;
+  }
+  
+  .book p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .book a {
+    background-color: #0000ff;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  .news {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .news h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+  }
+  
+  .news p {
+    margin: 10px 0;
+  }
+  
+  .recommend {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .recommend h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+  }
+  
+  .recommend ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .recommend ul li {
+    margin: 10px 0;
+  }
+  
+  .recommend ul li a {
+    text-decoration: none;
+  }
+  .left-nav{
+    float: left;
+  }
+.membership{
+  background-color: transparent;
+  border-color: gainsboro;
+  border-color: yellow;
+  color: yellow;
+}
+.sign-up{
+  background-color: transparent;
+  border-color: gainsboro;
+}
+.sign-out{
+  background-color: #15B088;
+  border: none;
+}
+.button:hover {
+  background-color: #ff9900;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.logo {
+  width: 100px; /* Độ rộng của logo */
+  height: auto; /* Chiều cao tự động điều chỉnh để giữ tỷ lệ */
+  background-color: transparent ;
+}

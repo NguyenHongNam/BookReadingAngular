@@ -1,0 +1,16 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #121214;
+  }
+  
+  .logo {
+    flex: 0 0 auto;
+  }
+  
+  .info {
+    flex: 1;
+    text-align: right;
+  }

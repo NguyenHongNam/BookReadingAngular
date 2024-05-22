@@ -1,0 +1,152 @@
+
+<div class="function-bar">
+    <button nz-button nzType="primary" (click)="showAddModal()">Thêm sách mới</button>
+    <div class="search-box">
+      <input type="text" placeholder="Tìm kiếm" [(ngModel)]="searchTitle" (keyup)="onsearchTermChange()"/>
+  </div>
+</div>
+<nz-table #fixedTable [nzData]="books" [nzScroll]="{ x: '1150px', y: '300px' }" [nzFrontPagination]="false">
+    <thead>
+      <tr>
+        <th nzLeft>STT</th>
+        <th nzLeft>Tiêu đề</th>
+        <th>Ảnh</th>
+        <th>Nhà xuất bản</th>
+        <th>Ngày xuất bản</th>
+        <th>Lượt xem</th>
+        <th>Thể loại</th>
+        <th>Giá bán</th>
+        <th>Tác giả</th>
+        <th>Yêu cầu hội viên</th>
+        <th nzRight>Chức năng</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td nzLeft>{{ book.bookId }}</td>
+        <td nzLeft>{{ book.title }}</td>
+        <td><img [src]="book.imgsrc" alt="Ảnh bìa sách" class="img-thumbnail"></td>
+        <td>{{ book.publisher }}</td>
+        <td>{{ book.releaseDate }}</td>
+        <td>{{ book.views }}</td>
+        <td>{{ book.category }}</td>
+        <td>{{ book.price }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.forMembership ? 'Có' : 'Không' }}</td>
+        <td nzRight>
+          <a (click)="confirmDelete(book)">Xoá</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a (click)="showEditModal(book)">Sửa</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+
+  <nz-modal [(nzVisible)]="isAddModelVisible" nzTitle="Thêm sách" (nzOnCancel)="handleAddModalCancel()" (nzOnOk)="addBook()" [nzWidth]="800">
+    <ng-container *nzModalContent>
+      <form id="addBookForm">
+        <div class="form-group">
+            <nz-form-label>Tiêu đề sách</nz-form-label>
+          <input nz-input type="text" class="form-control" name="addBookTitle" [(ngModel)]="addedBook.title">
+        </div>
+        <div class="form-group">
+            <nz-form-label>Mô tả</nz-form-label>
+          <textarea class="form-control" name="addBookDescription" [(ngModel)]="addedBook.description"></textarea>
+        </div>
+        <div class="form-group">
+            <nz-form-label>Nhà xuất bản</nz-form-label>
+          <input nz-input type="text" class="form-control" name="addBookPublisher" [(ngModel)]="addedBook.publisher">
+        </div>
+        <div class="form-group">
+            <nz-form-label>Ảnh bìa</nz-form-label>
+            <input type="file" class="form-control" name="addBookImgsrc" (change)="onImageSelected($event)">
+          </div>
+          <div class="preview-image" *ngIf="previewImageUrl">
+            <img [src]="previewImageUrl" alt="Ảnh bìa sách" class="img-thumbnail">
+          </div>
+        <div class="form-group">
+            <nz-form-label>Lượt xem</nz-form-label>
+          <input type="number" class="form-control" name="addBookViews" [(ngModel)]="addedBook.views">
+        </div>
+        <div class="form-group">
+            <nz-form-label>Giá bán</nz-form-label>
+          <input nz-input type="text" class="form-control" name="addBookPublisher" [(ngModel)]="addedBook.price">
+        </div>
+        <div class="form-group">
+            <nz-form-label>Yêu cầu thành viên</nz-form-label>
+          <input type="checkbox" class="form-control" name="addBookForMembership" [(ngModel)]="addedBook.forMembership">
+        </div>
+        <div class="form-group">
+            <nz-form-label>Tác giả</nz-form-label>
+            <select class="form-control" name="author" [(ngModel)]="addedBook.authorId">
+                <option *ngFor="let author of authorList" [ngValue]="author.authorId">{{ author.authorName }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <nz-form-label>Thể loại</nz-form-label>
+            <select class="form-control" name="category" [(ngModel)]="addedBook.categoryId">
+                <option *ngFor="let category of categoryList" [ngValue]="category.categoryId">{{ category.categoryName }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <nz-form-label>Nội dung</nz-form-label>
+          <textarea class="form-control" name="addBookDescription" [(ngModel)]="addedBook.content"></textarea>
+        </div>
+      </form>
+    </ng-container>
+  </nz-modal>
+
+
+  <nz-modal [(nzVisible)]="isVisible" nzTitle="Chỉnh sửa sách" (nzOnCancel)="handleCancel()" (nzOnOk)="editBooks()" [nzWidth]="800">
+    <ng-container *nzModalContent>
+      <form id="editBookForm">
+        <div class="form-group">
+            <nz-form-label>Tiêu đề sách</nz-form-label>
+          <input nz-input type="text" class="form-control" name="addBookTitle" [(ngModel)]="editedBook.title">
+        </div>
+        <div class="form-group">
+            <nz-form-label>Mô tả</nz-form-label>
+          <textarea class="form-control" name="addBookDescription" [(ngModel)]="editedBook.description"></textarea>
+        </div>
+        <div class="form-group">
+            <nz-form-label>Nhà xuất bản</nz-form-label>
+          <input nz-input type="text" class="form-control" name="addBookPublisher" [(ngModel)]="editedBook.publisher">
+        </div>
+        <div class="form-group">
+            <nz-form-label>Ảnh bìa</nz-form-label>
+            <input type="file" class="form-control" name="addBookImgsrc" (change)="onImageEdit($event)">
+          </div>
+          <div class="preview-image" *ngIf="currentImageUrl">
+            <img [src]="currentImageUrl" alt="Ảnh bìa sách" class="img-thumbnail">
+          </div>
+        <div class="form-group">
+            <nz-form-label>Lượt xem</nz-form-label>
+          <input type="number" class="form-control" name="addBookViews" [(ngModel)]="editedBook.views">
+        </div>
+        <div class="form-group">
+            <nz-form-label>Giá bán</nz-form-label>
+          <input nz-input type="text" class="form-control" name="addBookPublisher" [(ngModel)]="editedBook.price">
+        </div>
+        <div class="form-group">
+            <nz-form-label>Yêu cầu thành viên</nz-form-label>
+          <input type="checkbox" class="form-control" name="addBookForMembership" [(ngModel)]="editedBook.forMembership">
+        </div>
+        <div class="form-group">
+            <nz-form-label>Tác giả</nz-form-label>
+            <select class="form-control" name="author" [(ngModel)]="editedBook.authorId">
+                <option *ngFor="let author of authorList" [ngValue]="author.authorId">{{ author.authorName }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <nz-form-label>Thể loại</nz-form-label>
+            <select class="form-control" name="category" [(ngModel)]="editedBook.categoryId">
+                <option *ngFor="let category of categoryList" [ngValue]="category.categoryId">{{ category.categoryName }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <nz-form-label>Nội dung</nz-form-label>
+          <textarea class="form-control" name="addBookDescription" [(ngModel)]="editedBook.content"></textarea>
+        </div>
+      </form>
+    </ng-container>
+  </nz-modal>

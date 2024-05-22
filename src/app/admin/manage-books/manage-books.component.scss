@@ -1,0 +1,54 @@
+
+  .nz-modal {
+    .ant-modal-content {
+      padding: 20px; /* Adjust padding as needed */
+    }
+  }
+  
+  /* Form group styling */
+  .form-group {
+    flex-direction: column;
+    margin-bottom: 15px; /* Adjust margin as needed */
+    /* Form labels */
+    .nz-form-label {
+      margin-bottom: 5px; /* Adjust margin as needed */
+    }
+  }
+  
+  /* Input fields */
+  .form-control {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Textarea (full width at the bottom) */
+  textarea {
+    width: 100%;
+    min-height: 100px;
+    margin-top: 20px; /* Add margin above textarea */
+    text-align: center; /* Center textarea content */
+  }
+  
+  /* Preview image (optional) */
+  .preview-image {
+    width: 30%; /* Display preview image full width */
+    margin-bottom: 15px; /* Adjust margin as needed */
+  
+    img {
+      max-width: 100%; /* Scale image to fit within container */
+      height: auto;
+    }
+  }
+  .img-thumbnail {
+    width: 100%; /* Đưa hình ảnh về kích thước tối đa của cột */
+    height: auto; /* Đảm bảo tỷ lệ hình ảnh không bị biến dạng */
+}
+nz-table{
+  margin-top: 20px;
+}
+.function-bar{
+  display: flex;
+  justify-content: space-between;
+}
+  

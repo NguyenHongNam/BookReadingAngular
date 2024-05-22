@@ -1,0 +1,57 @@
+<div class="function-bar">
+    <button nz-button nzType="primary" (click)="showAddModal()">Thêm tác giả mới</button>
+  </div>
+  <nz-table #headerTable [nzScroll]="{ y: '300px' }"
+        [nzData]="authors" [nzFrontPagination]="false">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên tác giả</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let author of authors">
+          <td>{{ author.authorId }}</td>
+          <td>{{ author.authorName }}</td>
+          <td>
+            <a (click)="showEditModal(author)">Sửa</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a (click)="confirmDelete(author)">Xoá</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a nz-popover nzPopoverTitle="Nhuận bút" [nzPopoverContent]="contentTemplate" nzPopoverTrigger="click" (click)="getRoyalties(author)">Xem nhuận bút</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  
+    <!-- modal chinh sua goi hoi vien -->
+  <nz-modal [(nzVisible)]="isVisible" nzTitle="Chỉng sửa tác giả" (nzOnCancel)="handleCancel()" (nzOnOk)="editAuthors()">
+    <ng-container *nzModalContent>
+      <form id="editAuthorForm">
+        <div class="form-group">
+            <label for="editAuthorName">Tên tác giả</label>
+            <input type="text" class="form-control" name="authorName" [(ngModel)]="editedAuthor.authorName">
+        </div>
+    </form>
+    </ng-container>
+  </nz-modal>
+  
+  
+  <!-- modal them goi hoi vien -->
+  <nz-modal [(nzVisible)]="isAddModelVisible" nzTitle="Thêm tác giả" (nzOnCancel)="handleAddModalCancel()" (nzOnOk)="addAuthor()">
+    <ng-container *nzModalContent>
+      <form id="addAuthorForm">
+        <div class="form-group">
+            <label for="addAuthorName">Tên tác giả</label>
+            <input type="text" class="form-control" name="addAuthorName" [(ngModel)]="addedAuthor.authorName">
+        </div>
+    </form>
+    </ng-container>
+  </nz-modal>
+
+  <ng-template #contentTemplate>
+    <div>
+      <p>Nhuận bút của tác giả: {{ royalties | currency }}</p>
+    </div>
+  </ng-template>

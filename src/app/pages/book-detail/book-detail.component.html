@@ -1,0 +1,75 @@
+<app-header></app-header>
+<div class="main-wrapper" id="main_wrapper">
+    <div id="main_content">
+        <div id="left_sidebar">
+            <img [src]="book?.imgsrc" alt="Ảnh bìa">
+        </div>
+        <div id="right_sidebar">
+            Right sidebar
+        </div>
+        <div id="content">
+            <h1>{{ book?.title }}</h1>
+            <div class="book-info">
+                <ul>
+                    <li class="title">Tác giả</li>
+                    <li>{{ book?.author }}</li>
+                </ul>
+                <ul>
+                    <li class="title">Thể loại</li>
+                    <li>{{ book?.category }}</li>
+                </ul>
+                <ul>
+                    <li class="title">Nhà xuất bản</li>
+                    <li>{{ book?.publisher }}</li>
+                </ul>
+                <ul>
+                    <li class="title">Giành cho hội viên</li>
+                    <li>{{ book?.forMembership ? 'Có' : 'Không' }}</li>
+                </ul>
+                <ul>
+                    <li class="title">Lượt đọc</li>
+                    <li>{{ book?.views}}</li>
+                </ul>
+            </div>
+            <hr style="border-color: grey; margin-top: 10px; margin-bottom: 10px;">
+            <div class="book-option">
+                <button class="btn-read" nz-button nzType="primary" [nzSize]="size" nzShape="round" (click)="gotoBookContent(book?.bookId??0); increaseViews(book?.bookId ?? 0)">
+                    <i nz-icon nzType="read" nzTheme="outline"></i>
+                    Đọc
+                </button>
+                <button nz-button nzType="primary" [nzSize]="size" nzShape="circle"><i nz-icon nzType="heart" nzTheme="outline"></i></button>
+            </div>
+            <div class="book-description">
+                {{ book?.description }}
+            </div>
+            <div class="book-rating">
+                <h1>Độc giả nói gì về sách</h1>
+                <h2>Bình luận(10)</h2>
+                <div class="comment-section">
+                    <hr style="border-color: grey; margin-top: 10px; margin-bottom: 10px;">
+                    <div class="container">
+                        <div class="comment d-flex align-items-center">
+                            <textarea></textarea> 
+                            <button nz-button class="btn-comment" [nzSize]="size" nzType="primary">Bình luận</button>
+                        </div>
+                        <div class="comment-card" *ngFor="let comment of rating"> <!-- Hiển thị danh sách các bình luận -->
+                            <div class="card-header">
+                                <div class="avata-name">
+                                    <nz-avatar nzSize="large" nzIcon="user" nzAlt="avata"></nz-avatar>
+                                    {{ curentUser?.fullname }}
+                                </div>
+                                <div class="time">
+                                    {{ comment.createdDate | date: 'dd/MM/yyyy' }}
+                                </div>
+                            </div>
+                            <div class="content">
+                                {{ comment.comment }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

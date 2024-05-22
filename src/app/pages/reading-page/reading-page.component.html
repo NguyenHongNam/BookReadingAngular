@@ -1,0 +1,17 @@
+<main>
+<div class="site-page-header-ghost-wrapper">
+    <nz-page-header nzBackIcon [nzGhost]="true" class="custom-header">
+      <nz-page-header-title>{{book?.title}}</nz-page-header-title>
+      <nz-page-header-extra>
+        <nz-space>
+            <span nz-icon nzType="book" nzTheme="outline"></span>
+        </nz-space>
+      </nz-page-header-extra>
+      <nz-page-header-content>
+      </nz-page-header-content>
+    </nz-page-header>
+  </div>
+<div class="content">
+    {{book?.content}}
+</div>
+</main>

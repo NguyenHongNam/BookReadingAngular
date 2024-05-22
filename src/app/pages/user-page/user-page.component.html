@@ -1,0 +1,92 @@
+<app-header></app-header>
+<div id="main_wrapper">
+    <div id="main_content">
+        <div id="left_sidebar">
+          <div class="user_name">
+            <span nz-icon nzType="user" nzTheme="outline"></span>
+            {{currentUser?.username}}
+          </div>
+          <div class="balance">
+              <span nz-icon nzType="wallet" nzTheme="outline"></span>
+              {{currentUser?.balance}}
+              <div class="add-balance">
+                <button class="btn-read" nz-button nzType="primary" [nzSize]="size" nzShape="round" (click)="showAddModal()">
+                  Nạp tiền
+              </button>
+              <button class="btn-read" nz-button nzType="primary" [nzSize]="size" nzShape="round">
+                Đăng ký gói
+            </button>
+            </div>
+          </div>
+        </div>
+        <div id="right_sidebar">   
+        </div>
+        <div id="content">
+          <h2>Quản lý thông tin</h2>
+            <div class="book-info">
+              <h3>Thông tin cá nhân</h3>
+            </div>
+            <hr style="border-color: grey; margin-top: 10px; margin-bottom: 10px;">
+            <ng-container>
+              <form id="user-info">
+                <div class="form-group input-group">
+                  <label for="gendet">Họ tên: </label>
+                    <input nz-input type="text" class="form-control" name="addBookTitle" placeholder="{{currentUser?.fullname}}">
+                </div>
+                <div class="form-group input-group">
+                  <label for="gendet">Email: </label>
+                    <input nz-input type="text" class="form-control" name="addBookTitle" placeholder="{{currentUser?.email}}">
+                </div>
+                <div class="form-group input-group">
+                    <label for="gendet">Giới tính: </label>
+                    <input nz-input type="text" class="form-control" name="addBookTitle" placeholder="{{currentUser?.gender ? 'Nam' : 'Nữ'}}">
+                </div>
+                <div class="form-group input-group">
+                  <label for="gendet">Tên đăng nhập: </label>
+                    <input nz-input type="text" class="form-control" name="addBookTitle" placeholder="{{currentUser?.username}}">
+                </div>
+                <div class="form-group input-group">
+                  <button class="btn-read" nz-button nzType="primary" [nzSize]="size" nzShape="round" (click)="showChangePasswordModal()">
+                      Đổi mật khẩu
+                  </button>
+              </div>
+            </form>
+            </ng-container>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+
+<nz-modal [(nzVisible)]="isAddModelVisible" nzTitle="Nạp tiền" (nzOnCancel)="handleAddModalCancel()" (nzOnOk)="deposit()">
+  <ng-container *nzModalContent>
+    <form nz-form [formGroup]="depositForm">
+      <nz-form-item>
+        <nz-form-control>
+          <input nz-input formControlName="amount" placeholder="Mệnh giá" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <input nz-input formControlName="series" placeholder="Số Seri" />
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </ng-container>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isChangePasswordModalVisible" nzTitle="Đổi mật khẩu" (nzOnCancel)="handleCancelChangePassword()" (nzOnOk)="changePassword()">
+  <ng-container *nzModalContent>
+    <form nz-form [formGroup]="changePasswordForm">
+      <nz-form-item>
+        <nz-form-control>
+          <input nz-input formControlName="curentPassword" placeholder="Mật khẩu hiện tại" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <input nz-input formControlName="newPassword" placeholder="Nật khẩu mới" />
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </ng-container>
+</nz-modal>
